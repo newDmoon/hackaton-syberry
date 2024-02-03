@@ -6,10 +6,14 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import syberry.api.telegrambot.Bot;
+import syberry.api.telegrambot.service.BankService;
 
 @RestController
 @CrossOrigin
 public class BotController {
+
+    @Autowired
+    private BankService bankService;
 
     @Autowired
     private Bot bot;
@@ -17,5 +21,10 @@ public class BotController {
     @GetMapping("")
     public ResponseEntity<?> getBotName() {
         return ResponseEntity.ok(bot.getBotUsername() + " " + bot.getBotToken());
+    }
+
+    @GetMapping("/banks")
+    public ResponseEntity<?> getBankNames(){
+        return ResponseEntity.ok(bankService.getBankNames());
     }
 }

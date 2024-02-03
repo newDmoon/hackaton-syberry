@@ -4,3 +4,10 @@ server:
 bot:
   name: ${BOT_NAME}
   token: ${BOT_TOKEN}
+
+bank:
+  names:
+    AAA,
+    BBB,
+    CCC
+  
